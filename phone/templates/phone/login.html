@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	div.div1{
+	height:75px;
+	margin:5px;
+	margin-bottom:20px;
+	direction:rtl;
+	border:3px ridge gray;
+	border-radius:10px;
+	padding-right:4px;
+	padding-top:8px;
+	}
+
+	div.div2{
+	float:right;
+	margin:10px;
+	margin-left:1px;
+	font-size:20px;
+	font-weight:bold;
+	}
+
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <b style="font-size:28px">seyed mostafa</b>
+    <a href="{%url 'signup'%}">
+    <div style="float:right;margin-top:5px;font-size:20px"> signup </div>
+    </a>
+  </div>
+
+
+<div class="row">
+
+<div class="col-3 col-s-3 menu" style="direction:rtl;font-weight:bold;font-size:18px;">
+  در این سایت شما می توانید مخاطب و شماره تلفن آن را ذخیره کنید</div>
+
+<div style="direction:rtl"  class="col-6 col-s-9">
+  <h1>ورود</h1>
+  <p>در این بخش نام و رمز خود را به دقت وارد کنید</p>
+	<div >
+
+
+<div class="container" >
+  <form action="{% url 'login' %}" method="POST">
+    <div class="row">
+      {% csrf_token %}
+      <div class="col-25">
+        <label for="fname">نام</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="username" placeholder="نام ">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">رمز</label>
+      </div>
+      <div class="col-75">
+        <input type="password" id="lname" name="password" placeholder="رمز">
+      </div>
+    </div>
+    آیا رمز ورود را فراموش کرده اید &nbsp&nbsp&nbsp&nbsp&nbsp
+	<a href="ss">ارسال رمز فراموشی</a>
+    <br><br>
+    {% if error %}
+    {{error}}<br><br>
+    {% endif %}
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+
+  </form>
+</div>
+
+	</div>
+</div>
+
+{% endblock  %}

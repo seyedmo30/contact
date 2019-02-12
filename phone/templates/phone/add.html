@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    background-color: #9933cc;
+    color: #ffffff;
+    padding: 15px;
+}
+	div.div1{
+	height:75px;
+	margin:5px;
+	margin-bottom:20px;
+	direction:rtl;
+	border:3px ridge gray;
+	border-radius:10px;
+	padding-right:4px;
+	padding-top:8px;
+	}
+	
+	div.div2{
+	float:right;
+	margin:10px;
+	margin-left:1px;
+	font-size:20px;
+	font-weight:bold;
+	}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #0099cc;
+}
+.aside {
+    background-color: #33b5e5;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.footer {
+    background-color: #0099cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>seyed mostafa</h1>
+</div>
+
+<div class="row">
+
+<div class="col-3 col-s-3 menu">
+  <ul>
+    <li>manzel - 8</li>
+    <li>famil - 10</li>
+    <li>farzanegan - 4</li>
+    <li>daneshgah - 7</li>
+  </ul>
+</div>
+
+<div style="direction:rtl"  class="col-6 col-s-9">
+  <h1>افزودن مخاطب</h1>
+  <p>در این بخش به دقت شماره و گروه فرد را وارد کنید</p>
+	<div >
+
+	
+<div class="container" ">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">نام</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="نام مورد نظر ...">
+      </div>
+    </div>
+    
+	
+	<div class="row">
+      <div class="col-25">
+        <label for="lname">شماره تلفن</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="شماره مورد نظر ...">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">گروه</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="australia">خانواده</option>
+          <option value="canada">فامیل</option>
+          <option value="canada">دانشگاه</option>
+          <option value="canada">دوستان</option>
+          <option value="usa">غیره</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <input type="submit" value="افزودن">
+    </div>
+  </form>
+</div>
+	
+	</div>
+</div>
+
+<div class="col-3 col-s-12">
+  <div class="aside">
+    <h2>برترین فیلم ها؟</h2>
+    <p>می توانید برترین فیلم ها از دیدگاه مردم را مشاهده کنید</p><br>
+    <h2>برترین آهنگ های ماندگار؟</h2>
+    <p>ماندگار ترین موسیقی های سه خواننده، ابی ، داریوش و هایده را گوش دهید</p><br>
+    <h2>ارتباط با ما</h2>
+    <p>می توانید انتقادات و پیشنهادات خود را از طریق ایمیل زیر به ما ارسال کنید<br><br>
+	seyedmo30@gmail.com</p>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <p>Resize the browser window to see how the content respond to the resizing.</p>
+</div>
+
+</body>
+</html>
