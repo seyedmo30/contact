@@ -33,7 +33,7 @@ html {
 	padding-right:4px;
 	padding-top:8px;
 	}
-	
+
 	div.div2{
 	float:right;
 	margin:10px;
@@ -195,25 +195,30 @@ input[type=submit]:hover {
   <p>در این بخش به دقت شماره و گروه فرد را وارد کنید</p>
 	<div >
 
-	
-<div class="container" ">
-  <form action="/action_page.php">
+
+        {% for error in error %}
+        {{error}}
+        {% endfor %}
+<div class="container">
+
+  <form action="{% url 'add' %}" method="POST">
+    {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">نام</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="firstname" placeholder="نام مورد نظر ...">
+        <input type="text" id="fname" name="name" placeholder="نام مورد نظر ...">
       </div>
     </div>
-    
-	
+
+
 	<div class="row">
       <div class="col-25">
         <label for="lname">شماره تلفن</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="شماره مورد نظر ...">
+        <input type="number" id="lname" name="number" placeholder="شماره مورد نظر ...">
       </div>
     </div>
     <div class="row">
@@ -221,22 +226,20 @@ input[type=submit]:hover {
         <label for="country">گروه</label>
       </div>
       <div class="col-75">
-        <select id="country" name="country">
-          <option value="australia">خانواده</option>
-          <option value="canada">فامیل</option>
-          <option value="canada">دانشگاه</option>
-          <option value="canada">دوستان</option>
-          <option value="usa">غیره</option>
+        <select id="country" name="group">
+          {% for groups in groups %}
+          <option value={{groups}}>{{groups.name}}</option>
+
+          {% endfor %}
         </select>
       </div>
-    </div>
-    
+</div>
     <div class="row">
       <input type="submit" value="افزودن">
     </div>
   </form>
 </div>
-	
+
 	</div>
 </div>
 

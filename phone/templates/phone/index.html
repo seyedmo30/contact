@@ -41,10 +41,20 @@
 
 <div class="col-3 col-s-3 menu">
   <ul>
-      <li>manzel - 8</li>
-    <li>famil - 10</li>
-    <li>farzanegan - 4</li>
-    <li>daneshgah - 7</li>
+		<a href="/contacts">
+    <li>all </li>
+		</a>
+
+		{%for group in groups%}
+		<a href="/contacts/{{group.id}}">
+    <li>{{group.name}} </li>
+		</a>
+		{% endfor %}
+
+			<a href="/add_grp">
+	    <li>+ + + add group + + + </li>
+			</a>
+
   </ul>
 </div>
 
@@ -53,18 +63,12 @@
   <p>در این سایت شما می توانید شماره تلفن و ایمیل مورد نظر را ذخیره کنید.</p>
 	<div >
 
-<div class="div1" style="background-color:pink;text-align: center;font-size:40px;">
+<a href="{% url 'add'%}">
+	<div class="div1" style="background-color:pink;text-align: center;font-size:40px;">
 <b>افزودن + <b>
-</diV>
+</diV></a>
 
 
-<div class="div1" >
-<div class="div2">
-محسن &nbsp&nbsp09012440785 &nbsp&nbsp
-<div style="float:left">
-<img class="star" src="{% static 'delete.png' %}" alt="rate" width="40" height=auto> &nbsp
-<img class="star" src="{% static 'edit.png' %}" alt="rate" width="40" height=auto> &nbsp
-</div></div></div>
 {% for contact in contacts.all %}
 <div class="div1" >
 <div class="div2">
