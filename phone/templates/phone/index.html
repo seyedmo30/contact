@@ -2,7 +2,8 @@
 
 {% load staticfiles %}
 
-{% block content %}
+
+{%block style%}
 
 	div.div1{
 	height:75px;
@@ -22,21 +23,11 @@
 	font-size:20px;
 	font-weight:bold;
 	}
+{%endblock%}
 
-</style>
-</head>
-<body>
 
-<div class="header">
-  <b style="font-size:28px">seyed mostafa</b>
-  <a href="javascript:{document.getElementById('logout').submit()}">
-  <div style="float:right;margin-top:5px;font-size:20px"> logout </div>
-  </a>
-	<form id="logout"  action="{% url 'logout'%}" method="POST">
-{%csrf_token%}
-<input type="hidden" />
-</div>
 
+{% block content %}
 <div class="row">
 
 <div class="col-3 col-s-3 menu">
@@ -74,8 +65,8 @@
 <div class="div2">
 {{contact.name}} &nbsp&nbsp{{contact.number}} &nbsp&nbsp
 <div style="float:left">
-  <img class="star" src="{% static 'delete.png' %}" alt="rate" width="40" height=auto> &nbsp
-  <img class="star" src="{% static 'edit.png' %}" alt="rate" width="40" height=auto> &nbsp
+  <a href="/contacts/{{grp_id}}/delete/{{contact.id}}" ><img class="star" src="{% static 'delete.png' %}" alt="rate" width="40" height=auto></a> &nbsp
+  <a href="/contacts/update/{{contact.id}}" ><img class="star" src="{% static 'edit.png' %}" alt="rate" width="40" height=auto></a> &nbsp
 </div></div></div>
 {% endfor %}
 

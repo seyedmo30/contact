@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-3 col-s-3 menu">
+  <ul>
+    <li>manzel - 8</li>
+    <li>famil - 10</li>
+    <li>farzanegan - 4</li>
+    <li>daneshgah - 7</li>
+  </ul>
+</div>
+
+<div style="direction:rtl"  class="col-6 col-s-9">
+  <h1>افزودن مخاطب</h1>
+  <p>در این بخش به دقت شماره و گروه فرد را وارد کنید</p>
+	<div >
+
+
+        {% for error in error %}
+        {{error}}
+        {% endfor %}
+<div class="container">
+
+  <form action="{% url 'add_grp' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">نام</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="name" placeholder="نام مورد نظر ...">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="افزودن">
+    </div>
+  </form>
+</div>
+
+	</div>
+</div>
+{% endblock  %}

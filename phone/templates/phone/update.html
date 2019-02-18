@@ -2,11 +2,10 @@
 
 
 {% block content %}
-
 <div class="row">
 
-    <div class="col-3 col-s-3 menu" style="direction:rtl;font-weight:bold;font-size:18px;">
-    </div>
+      <div class="col-3 col-s-3 menu" style="direction:rtl;font-weight:bold;font-size:18px;">
+      </div>
 
 <div style="direction:rtl"  class="col-6 col-s-9">
   <h1>افزودن مخاطب</h1>
@@ -19,14 +18,14 @@
         {% endfor %}
 <div class="container">
 
-  <form action="{% url 'add' %}" method="POST">
+  <form action="{% url 'update' contact.id %}" method="POST">
     {% csrf_token %}
     <div class="row">
       <div class="col-25">
         <label for="fname">نام</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="name" placeholder="نام مورد نظر ...">
+        <input type="text" id="fname" name="name" value="{{contact.name}}" placeholder="{{contact.name}}">
       </div>
     </div>
 
@@ -36,7 +35,7 @@
         <label for="lname">شماره تلفن</label>
       </div>
       <div class="col-75">
-        <input type="number" id="lname" name="number" placeholder="شماره مورد نظر ...">
+        <input type="number" value="{{contact.number}}" id="lname" name="number" placeholder="{{contact.number}}">
       </div>
     </div>
     <div class="row">
@@ -45,9 +44,13 @@
       </div>
       <div class="col-75">
         <select id="country" name="group">
+          <option value={{contact.group.id}}  >{{contact.group}}</option>
           {% for groups in groups %}
+          {% if groups == contact.group %}
+          { continue }
+          {% else %}
           <option value={{groups.id}}>{{groups.name}}</option>
-
+          {% endif %}
           {% endfor %}
         </select>
       </div>

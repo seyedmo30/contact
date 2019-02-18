@@ -154,6 +154,38 @@ input[type=submit]:hover {
     .col-12 {width: 100%;}
 }
 
+
+{% block style  %}
+
+{% endblock %}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  {% if user.is_authenticated %}
+  <a href="{% url 'contacts_all'%}"
+  <b style="font-size:28px">{{user}}</b>
+</a>
+  <a href="javascript:{document.getElementById('logout').submit()}">
+  <div style="float:right;margin-top:5px;font-size:20px"> logout </div>
+  </a>
+	<form id="logout"  action="{% url 'logout'%}" method="POST">
+{%csrf_token%}
+<input type="hidden" />
+{%else%}
+<a href="{% url 'login' %}">
+<b style="font-size:28px">Login</b>
+</a>
+<a href="{% url 'signup' %}">
+<div style="float:right;margin-top:5px;font-size:20px"> Signup </div>
+</a>
+{% endif %}
+</div>
+
+
+
 {% block content %}
 
 
