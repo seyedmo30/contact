@@ -173,7 +173,7 @@ input[type=submit]:hover {
   </a>
 	<form id="logout"  action="{% url 'logout'%}" method="POST">
 {%csrf_token%}
-<input type="hidden" />
+<input type="hidden" /></form>
 {%else%}
 <a href="{% url 'login' %}">
 <b style="font-size:28px">Login</b>

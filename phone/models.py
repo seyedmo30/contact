@@ -14,7 +14,7 @@ class Phone(models.Model):
 
 
     name=models.CharField(max_length=30)
-    number=models.IntegerField()
+    number=models.IntegerField(12)
     group=models.ForeignKey(Grp,null='true' ,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
 

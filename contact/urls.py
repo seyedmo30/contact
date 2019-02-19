@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/<int:grp_id>/',views.contacts ,name='contacts'),
     path('contacts/', views.contacts_all,name='contacts_all'),
+    path('', views.contacts_all,name='contacts_all'),
     path('contacts/<int:grp_id>/delete/<int:contact_id>/',views.delete ,name='delete'),
     path('contacts//delete/<int:contact_id>/',views.delete_a ,name='delete_a'),
     path('signup/', views.signup,name='signup'),

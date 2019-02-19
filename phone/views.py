@@ -60,9 +60,9 @@ def signup(request):
                 user=User.objects.get(username=request.POST['username'])
                 return render(request,'phone/signup.html',{'error':'user alredy'})
             except User.DoesNotExist:
-                user=User.objects.create_user(request.POST['username'],password=request.POST['password'])
+                user=User.objects.create_user(request.POST['username'],email=request.POST['email'] ,password=request.POST['password'])
                 auth.login(request,user)
-                return redirect('signup')
+                return redirect('/contacts/')
         else:
             return render(request,'phone/signup.html',{'error':'password must be match'})
 
@@ -98,7 +98,7 @@ def add(request):
 def add_grp(request):
 
     if request.method=='POST':
-        if request.POST['name']  :
+        if request.POST['name'] :
             grp=Grp()
             grp.name=request.POST['name']
             grp.user=request.user
