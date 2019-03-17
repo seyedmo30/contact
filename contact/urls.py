@@ -1,11 +1,18 @@
 
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 from django.conf import settings
+from django.urls import reverse_lazy
 from phone import views
+from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 urlpatterns = [
+
     path('admin/', admin.site.urls),
+    path('password_reset/', auth_views.PasswordResetView.as_view(success_url=reverse_lazy('password_reset_done')), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password_reset/confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password_reset/complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('contacts/<int:grp_id>/',views.contacts ,name='contacts'),
     path('contacts/', views.contacts_all,name='contacts_all'),
     path('', views.contacts_all,name='contacts_all'),
