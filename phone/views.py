@@ -14,6 +14,25 @@ def contacts(request,grp_id):
 
 
 @login_required(login_url="signup")
+def contacts_all(request):
+        groups=Grp.objects.all().filter(user=request.user)
+        contacts=Phone.objects.all().filter(user=request.user)
+        return render(request,'phone/index.html',{'contacts':contacts,'groups':groups})
+
+
+@login_required(login_url="signup")
+def delete(request,contact_id,grp_id = ''):
+        contact=get_object_or_404(Phone,pk=contact_id)
+        Phone.objects.filter(id=contact.id).delete()
+        if grp_id:
+            return redirect('/contacts/'+str(grp_id)+'/')
+        else:
+            return redirect('/contacts/')
+
+
+
+
+@login_required(login_url="signup")
 def update(request,contact_id):
     if request.method=='POST':
             contact=get_object_or_404(Phone,pk=contact_id)
@@ -34,23 +53,7 @@ def update(request,contact_id):
 
 
 
-@login_required(login_url="signup")
-def delete(request,contact_id,grp_id):
-        contact=get_object_or_404(Phone,pk=contact_id)
-        Phone.objects.filter(id=contact.id).delete()
-        return redirect('/contacts/'+str(grp_id)+'/')
 
-@login_required(login_url="signup")
-def delete_a(request,contact_id):
-        contact=get_object_or_404(Phone,pk=contact_id)
-        Phone.objects.filter(id=contact.id).delete()
-        return redirect('/contacts/')
-
-@login_required(login_url="signup")
-def contacts_all(request):
-        groups=Grp.objects.all().filter(user=request.user)
-        contacts=Phone.objects.all().filter(user=request.user)
-        return render(request,'phone/index.html',{'contacts':contacts,'groups':groups})
 
 
 def signup(request):

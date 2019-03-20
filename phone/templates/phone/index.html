@@ -65,7 +65,12 @@
 <div class="div2">
 {{contact.name}} &nbsp&nbsp{{contact.number}} &nbsp&nbsp
 <div style="float:left">
-  <a href="/contacts/{{grp_id}}/delete/{{contact.id}}" ><img class="star" src="{% static 'delete.png' %}" alt="rate" width="40" height=auto></a> &nbsp
+	{% if grp_id %}
+  <a href="/contacts/{{grp_id}}/delete/{{contact.id}}" >
+		{% else %}
+		<a href="/contacts/delete/{{contact.id}}" >
+		{% endif %}
+		<img class="star" src="{% static 'delete.png' %}" alt="rate" width="40" height=auto></a> &nbsp
   <a href="/contacts/update/{{contact.id}}" ><img class="star" src="{% static 'edit.png' %}" alt="rate" width="40" height=auto></a> &nbsp
 </div></div></div>
 {% endfor %}
