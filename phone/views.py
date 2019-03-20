@@ -5,11 +5,17 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 @login_required(login_url="signup")
-def contacts(request,grp_id):
-        group_id=get_object_or_404(Grp,pk=grp_id)
-        groups=Grp.objects.all().filter(user=request.user)
-        contacts=Phone.objects.all().filter(user=request.user).filter(group=group_id)
-        return render(request,'phone/index.html',{'contacts':contacts,'groups':groups,'grp_id':group_id.id})
+def contacts(request,grp_id = ''):
+        if grp_id:
+            group_id=get_object_or_404(Grp,pk=grp_id)
+            contacts=Phone.objects.all().filter(user=request.user).filter(group=group_id)
+            groups=Grp.objects.all().filter(user=request.user)
+            return render(request,'phone/index.html',{'contacts':contacts,'groups':groups,'grp_id':group_id.id})
+
+        else:
+            contacts=Phone.objects.all().filter(user=request.user)
+            groups=Grp.objects.all().filter(user=request.user)
+            return render(request,'phone/index.html',{'contacts':contacts,'groups':groups})
 
 
 

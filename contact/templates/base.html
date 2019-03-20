@@ -165,7 +165,7 @@ input[type=submit]:hover {
 
 <div class="header">
   {% if user.is_authenticated %}
-  <a href="{% url 'contacts_all'%}"
+  <a href="{% url 'contacts'%}"
   <b style="font-size:28px">{{user}}</b>
 </a>
   <a href="javascript:{document.getElementById('logout').submit()}">
